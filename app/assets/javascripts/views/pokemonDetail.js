@@ -5,7 +5,12 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  events: {
+    "click li": "selectToyFromList"
+  },
+
   template: JST['pokemonDetail'],
+
   render: function () {
     var pokemon = this.model;
     var content = this.template({pokemon: pokemon, toys: pokemon.toys });
@@ -15,6 +20,25 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
       $('ul.toys').append(toyContent);
     });
     return this;
+  },
+
+  selectToyFromList: function(e) {
+    var toyId = $(e.currentTarget).data('toy-id');
+    var toy = this.model.toys().get(toyId);
+    var view = new Pokedex.Views.ToyDetail ({
+      toy: toy,
+      $el: $('div.toy-detail')
+    });
+
+    view.render().$el;
   }
 
 });
+
+// selectToyFromList: function (event) {
+//   var toyId = $(event.currentTarget).data('toy-id');
+//   var pokemonId = $(event.currentTarget).data('pokemon-id');
+//   var toy = this.pokes.get(pokemonId).toys().get(toyId);
+//
+//   this.renderToyDetail(toy);
+// }
