@@ -4,11 +4,9 @@ Name: <%= toy.escape('name') %> <br>
 Happiness: <%= toy.escape('happiness') %> <br>
 Price: <%= toy.escape('price') %> <br>
 
-<%= console.log(pokes.attributes) %>
-
 Change Owner
 <select>
   <% pokes.each(function (poke) {%>
-      <option value="<%= poke.escape('name') %>"><%= poke.escape('name') %></option>
+      <option value="<%= poke.id %>"><%= poke.escape('name') %></option>
   <% }) %>
 </select>

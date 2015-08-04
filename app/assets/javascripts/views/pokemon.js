@@ -26,14 +26,6 @@ Pokedex.Views.Pokemon = Backbone.View.extend({
 
   addPokemonToList: function (pokemon) {
     var content = JST['pokemonListItem']({pokemon: pokemon});
-    // var $li = $("<li class='poke-list-item'>");
-    // $li.data('id', pokemon.escape('id'));
-    //
-    // $li.html(
-    //   "Name: " + pokemon.escape('name') + "<br>" +
-    //   "Poke Type: " + pokemon.escape('poke_type')
-    // );
-
     this.$pokeList.append(content);
   },
 
