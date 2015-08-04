@@ -1,0 +1,7 @@
+<img src="<%=pokemon.escape('image_url')%>">
+<p>Name: <%= pokemon.escape('name')%></p>
+<% for(var attr in pokemon.attributes) {%>
+  <% if(attr != 'id' && attr != 'image_url' && attr != 'name') {%>
+    <p><%= "" + attr + ": "  + pokemon.escape(attr) %></p>
+  <% } %>
+<% } %>
