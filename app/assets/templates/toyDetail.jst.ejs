@@ -1,0 +1,14 @@
+<img src ="<%= toy.escape('image_url') %>" > <br>
+
+Name: <%= toy.escape('name') %> <br>
+Happiness: <%= toy.escape('happiness') %> <br>
+Price: <%= toy.escape('price') %> <br>
+
+<%= console.log(pokes.attributes) %>
+
+Change Owner
+<select>
+  <% pokes.each(function (poke) {%>
+      <option value="<%= poke.escape('name') %>"><%= poke.escape('name') %></option>
+  <% }) %>
+</select>
