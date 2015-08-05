@@ -33,12 +33,6 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
     view.render().$el;
   }
 
-});
 
-// selectToyFromList: function (event) {
-//   var toyId = $(event.currentTarget).data('toy-id');
-//   var pokemonId = $(event.currentTarget).data('pokemon-id');
-//   var toy = this.pokes.get(pokemonId).toys().get(toyId);
-//
-//   this.renderToyDetail(toy);
-// }
+
+});

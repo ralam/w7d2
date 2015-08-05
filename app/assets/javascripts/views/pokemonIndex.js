@@ -1,7 +1,8 @@
 Pokedex.Views.PokemonIndex = Backbone.View.extend({
   initialize: function () {
     this.collection = new Pokedex.Collections.Pokemon();
-    this.listenTo(this.collection, "add sync", this.render);
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "add", this.addPokemonToList);
   },
 
   events: {
@@ -31,9 +32,6 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
     var id = $(e.currentTarget).data('id');
     var pokemon = this.collection.get(id);
     pokemon.fetch();
-    var view = new Pokedex.Views.PokemonDetail({
-      model: pokemon,
-      el: $(".pokemon-detail")
-    });
+    Backbone.history.navigate('/pokemon/' + id, { trigger: true, id: id });
   }
 });
